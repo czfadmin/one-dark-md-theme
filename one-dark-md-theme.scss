@@ -1,13 +1,32 @@
-$monospace-font: Menlo, Monaco, Consolas, 'Courier New', monospace;
+$monospace-font: Menlo, Monaco, Consolas, "Courier New", monospace;
 $line-space: 22px;
-
+$basicBackgroundColor: #30303ffa;
+$linkForeColor: #349e87;
+$precodeBackgroundColor: #3c3c4ef6;
+$tableHeaderColor: #9191d3f6;
+$tableEvenBackgroundColor: #47475cd2;
+$basicColor: #b8b8b8;
+$codeForeColor: rgb(19, 165, 109);
+$codeBackgroundColor: #676774d2;
+$tableBorder: rgb(98, 105, 141);
+$blockquoteForegroundColor: rgb(159, 172, 175);
+$blockquoteBackgroundColor: #47475cd2;
+$hrBorderColor: #596e9cd0;
+$precodeForegroundColor: rgba(160, 158, 153, 0.952);
+$hrefBorderBottomColor: #999cb8;
+$hrefHoverForegroundColor: #377fc2;
+$tableHeaderForegroundColor: #b7b7bd;
+$blockquoteBorderColor: #33a0e9;
+$borderRadius: 4px;
 .markdown-body {
   word-break: break-word;
+  background-color: $basicBackgroundColor;
   line-height: 1.75;
   font-weight: 400;
   font-size: 15px;
   overflow-x: hidden;
-  color: #333;
+  color: $basicColor;
+  padding: 0.25rem;
 
   h1,
   h2,
@@ -27,7 +46,7 @@ $line-space: 22px;
   h2 {
     padding-bottom: 12px;
     font-size: 24px;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid #546066d3;
   }
   h3 {
     font-size: 18px;
@@ -54,7 +73,7 @@ $line-space: 22px;
   }
 
   hr {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $hrBorderColor;
     border-bottom: none;
     border-left: none;
     border-right: none;
@@ -67,8 +86,8 @@ $line-space: 22px;
     word-break: break-word;
     border-radius: 2px;
     overflow-x: auto;
-    background-color: #fff5f5;
-    color: #ff502c;
+    background-color: $codeBackgroundColor;
+    color: $codeForeColor;
     font-size: 0.87em;
     padding: 0.065em 0.4em;
   }
@@ -78,6 +97,7 @@ $line-space: 22px;
     overflow: auto;
     position: relative;
     line-height: 1.75;
+    border-radius: $borderRadius;
     > code {
       font-size: 12px;
       padding: 15px 12px;
@@ -85,18 +105,18 @@ $line-space: 22px;
       word-break: normal;
       display: block;
       overflow-x: auto;
-      color: #333;
-      background: #f8f8f8;
+      color: $precodeForegroundColor;
+      background: $precodeBackgroundColor;
     }
   }
 
   a {
     text-decoration: none;
-    color: #0269c8;
-    border-bottom: 1px solid #d1e9ff;
+    color: $linkForeColor;
+    border-bottom: 1px solid $hrefBorderBottomColor;
     &:hover,
     &:active {
-      color: #275b8c;
+      color: $hrefHoverForegroundColor;
     }
   }
 
@@ -106,15 +126,19 @@ $line-space: 22px;
     width: auto;
     max-width: 100%;
     overflow: auto;
-    border: solid 1px #f6f6f6;
+    border: solid 1px $tableBorder;
   }
   thead {
-    background: #f6f6f6;
-    color: #000;
+    background: $tableHeaderColor;
+    color: $tableHeaderForegroundColor;
     text-align: left;
   }
+
+  tr:nth-child(odd) {
+    background-color: #3c3c4bd2;
+  }
   tr:nth-child(2n) {
-    background-color: #fcfcfc;
+    background-color: $tableEvenBackgroundColor;
   }
   th,
   td {
@@ -126,14 +150,15 @@ $line-space: 22px;
   }
 
   blockquote {
-    color: #666;
+    color: $blockquoteForegroundColor;
     padding: 1px 23px;
     margin: 22px 0;
-    border-left: 4px solid #cbcbcb;
-    background-color: #f8f8f8;
+    border-left: 6px solid $blockquoteBorderColor;
+    background-color: $blockquoteBackgroundColor;
+    border-radius: 4px;
     &::after {
       display: block;
-      content: '';
+      content: "";
     }
     & > p {
       margin: 10px 0;
@@ -163,7 +188,7 @@ $line-space: 22px;
   ol li {
     padding-left: 6px;
   }
-  
+
   .contains-task-list {
     padding-left: 0;
   }
@@ -182,5 +207,20 @@ $line-space: 22px;
     h3 {
       font-size: 18px;
     }
+  }
+  img {
+    border-radius: $borderRadius;
+  }
+  ::-webkit-scrollbar {
+    height: 6px;
+    background-color: rgb(77, 81, 97);
+  }
+  ::-webkit-scrollbar-corner {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgb(106, 105, 121);
   }
 }

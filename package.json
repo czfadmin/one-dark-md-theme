@@ -1,7 +1,8 @@
 {
-  "name": "juejin-markdown-theme-default",
+  "name": "one-dark-md-theme",
   "private": true,
   "license": "MIT",
+  "author": "abchen",
   "dependencies": {
     "bytemd": "^1.2.0"
   }
